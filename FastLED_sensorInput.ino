@@ -14,7 +14,7 @@ int sensorLED;     // which LED to light up in response to sensor
 void setup() {
   // GRB ordering is assumed
   FastLED.addLeds<WS2812, DATA_PIN, GRB>(leds, NUM_LEDS);
-
+  FastLED.setBrightness(50);
   Serial.begin(57600);
 }
 
