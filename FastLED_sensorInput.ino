@@ -8,7 +8,7 @@
 // Define the array of leds
 CRGB leds[NUM_LEDS];
 
-int led = -1;      // which LED to light up in our background animation
+int led = -1;      // which LED to light up in our background animation (start at -1 because we increment +1 as soon as animation starts) 
 int sensorLED;     // which LED to light up in response to sensor
 
 void setup() {
@@ -22,7 +22,8 @@ void loop() {
   
   // SENSOR CONTROLLED MOVING DOT (on top of the animation):
   int val = analogRead(A0);
-  sensorLED = map(val,  0, 1023,  0, NUM_LEDS);   // My IR distance sensor returns from 5-695
+  // A pot would be mapped from 0-1023, but an IR distance sensor might be 5-695
+  sensorLED = map(val,  0, 1023,  0, NUM_LEDS);   
 
   // make sure numbers stay within range:
   sensorLED = constrain(sensorLED, 0, NUM_LEDS);
@@ -39,7 +40,7 @@ void loop() {
 
 
   // background animation, increment a dot through the whole strip:
-  EVERY_N_MILLISECONDS(100) {       // change number to speed up or slow down
+  EVERY_N_MILLISECONDS(200) {       // change number to speed up or slow down
     // clear the *most recent* LED
     leds[led] = CRGB::Black;
     
