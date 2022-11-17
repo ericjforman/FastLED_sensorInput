@@ -22,7 +22,8 @@ void loop() {
   
   // SENSOR CONTROLLED MOVING DOT (on top of the animation):
   int val = analogRead(A0);
-  sensorLED = map(val,  0, 1023,  0, NUM_LEDS);   // My IR distance sensor returns from 5-695
+  // A pot would be mapped from 0-1023, but an IR distance sensor might be 5-695
+  sensorLED = map(val,  0, 1023,  0, NUM_LEDS);   
 
   // make sure numbers stay within range:
   sensorLED = constrain(sensorLED, 0, NUM_LEDS);
