@@ -8,7 +8,7 @@
 // Define the array of leds
 CRGB leds[NUM_LEDS];
 
-int led = -1;      // which LED to light up in our background animation
+int led = -1;      // which LED to light up in our background animation (start at -1 because we increment +1 as soon as animation starts 
 int sensorLED;     // which LED to light up in response to sensor
 
 void setup() {
@@ -40,7 +40,7 @@ void loop() {
 
 
   // background animation, increment a dot through the whole strip:
-  EVERY_N_MILLISECONDS(100) {       // change number to speed up or slow down
+  EVERY_N_MILLISECONDS(200) {       // change number to speed up or slow down
     // clear the *most recent* LED
     leds[led] = CRGB::Black;
     
