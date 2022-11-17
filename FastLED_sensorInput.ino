@@ -8,7 +8,7 @@
 // Define the array of leds
 CRGB leds[NUM_LEDS];
 
-int led = -1;      // which LED to light up in our background animation (start at -1 because we increment +1 as soon as animation starts 
+int led = -1;      // which LED to light up in our background animation (start at -1 because we increment +1 as soon as animation starts) 
 int sensorLED;     // which LED to light up in response to sensor
 
 void setup() {
